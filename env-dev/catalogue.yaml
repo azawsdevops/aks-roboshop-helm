@@ -1,1 +1,3 @@
 appName: catalogue
+db:
+    enabled: true
