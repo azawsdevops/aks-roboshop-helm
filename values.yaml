@@ -1,8 +1,10 @@
-containerPort: 8080
-port: 8080
-targetPort: 8080
-serviceType: ClusterIP
+service:
+  containerPort: 8080
+  servicePort: 8080
+  type: ClusterIP
 
+deployment:
+  replicas: 1
 
-db:
+dbJob:
   enabled: false
