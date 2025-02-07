@@ -1,5 +1,5 @@
 {{ if .Values.db.enabled }}
-{{ - range .Values.dbJob.jobName }}
+{{ - range .Values.db.jobName }}
 ---
 apiVersion: batch/v1
 kind: Job
