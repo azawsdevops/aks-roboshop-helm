@@ -1,1 +1,11 @@
 appName:shipping
+
+db:
+  enabled: true
+  jobName:
+  - file: app-user.sql
+    name: app-user
+  - file: schema.sql
+    name: schema
+  - file: master-data.sql
+    name: master-data

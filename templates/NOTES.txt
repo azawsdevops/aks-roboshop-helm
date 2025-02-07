@@ -1,0 +1,9 @@
+This chart is a roboshop project helm chart.
+As of now following resources are installed
+  - External Secret
+  - Secret Store
+  - Deployment
+  - Service
+{{- if .Values.db.enabled }}
+  - DB
+{{ end }}

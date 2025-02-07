@@ -1,9 +1,12 @@
 {{ if .Values.db.enabled }}
+{{ - range .Values.dbJob.jobName }}
 ---
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{.Values.appName}}-schema
+  name: {{.Values.appName}}-{{ .name }}
+  annotations:
+    "helm.sh/hook": pre-install
 spec:
   template:
     spec:
@@ -12,11 +15,12 @@ spec:
         image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
         env:
         - name: SCHEMA_FILE
-          value: "db/{{.Values.appName}}.sql"
+          value: "db/{{.file}}"
         envFrom:
-        - configMapRef:
-            name: {{.Values.appName}}
+        - secretRef:
+            name: {{$.Values.appName}}
       restartPolicy: Never
   backoffLimit: 1
 ---
+{{ end }}
 {{ end }}
