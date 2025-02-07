@@ -3,3 +3,4 @@ containerPort: 80
 port: 80
 targetPort: 80
 serviceType: LoadBalancer
+env: dev
