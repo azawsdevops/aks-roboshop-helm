@@ -1,5 +1,5 @@
 { { - if .Values.db.enabled } }
-  { { - range .Values.db.jobName } }
+{ { - range .Values.db.jobName } }
 ---
 apiVersion: batch/v1
 kind: Job
@@ -23,4 +23,4 @@ spec:
   backoffLimit: 1
 ---
 { { - end } }
-  { { - end } }
+{ { - end } }
