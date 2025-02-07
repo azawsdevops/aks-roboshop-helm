@@ -1,8 +1,8 @@
 appName: catalogue
 env: dev
 
-db:
-    enabled: true
-    jobName:
-    - file: master-data.js
-      name: master-data
+dbJob:
+  enabled: true
+  jobName:
+  - file: master-data.js
+    name: master-data
