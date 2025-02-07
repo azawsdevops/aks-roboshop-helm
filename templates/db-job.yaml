@@ -1,26 +1,28 @@
-{{- if .Values.db.enabled }}
-{{- range .Values.db.jobName }}
+{ { if .Values.db.enabled } }
+{ {  range .Values.db.jobName } }
 ---
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{.Values.appName}}-{{ .name }}
+  name: { { $.Values.appName } }-{{ .name }}
   annotations:
     "helm.sh/hook": pre-install
 spec:
   template:
     spec:
       containers:
-      - name: {{.Values.appName}}-schema
+      - name: { { $.Values.appName } }-schema
         image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
         env:
-          - name: SCHEMA_FILE
-            value: "db/{{.file}}"
+        - name: SCHEMA_FILE
+          value: "db/{{ .file }}"
         envFrom:
-          - secretRef:
-              name: {{$.Values.appName}}
+        - secretRef:
+            name: { { $.Values.appName } }
       restartPolicy: Never
   backoffLimit: 1
 ---
-{{- end }}
-{{- end }}
+{ { end } }
+{ { end } }
+
+
