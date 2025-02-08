@@ -5,8 +5,8 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: {{$.Values.appName }}-{{.name}}
-  annotations:
-    "helm.sh/hook": pre-install
+#  annotations:
+#    "helm.sh/hook": pre-install
 spec:
   template:
     spec:
