@@ -1,7 +1,7 @@
 appName: shipping
 env: dev
 
-db:
+dbJob:
   enabled: true
   jobName:
     - file: app-user.sql
