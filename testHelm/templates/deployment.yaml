@@ -18,7 +18,7 @@ spec:
       - name: {{.Values.appName}}
         image: public.ecr.aws/w8x4g9h7/roboshop-v3/{{.Values.appName}}
         ports:
-        - containerPort: {{.Values.ports.containerPort}}
+        - containerPort: 80
         envFrom:
         - configMapRef:
             name: {{.Values.appName}}
