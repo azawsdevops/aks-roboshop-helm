@@ -13,7 +13,7 @@ argocd account list &>/dev/null
 if [ $? -ne 0 ] ; then
 argo_server_ip=$(kubectl get svc -n argocd argocd-server -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 argo_server_password= $(kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath='{.data.password}' | base64 --decode)
-argocd login $argo_server_ip --insecure --username admin --password $argo_server_password
+argocd login ${argo_server_ip} --insecure --username admin --password ${argo_server_password}
 fi 
 
 argocd app create ${app_name} --repo https://github.com/kp3073/aks-roboshop-helm.git --dest-namespace default --dest-server https://kubernetes.default.svc --values env-${env}/${app_name}.yaml  --path .
