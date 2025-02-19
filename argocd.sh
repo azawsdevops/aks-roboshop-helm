@@ -12,7 +12,7 @@ export PATH=/github-runner/.local/bin:/github-runner/bin:/usr/local/bin:/usr/bin
 argocd account list &>/dev/null
 if [ $? -ne 0 ] ; then
 argo_server_ip=(kubectl get svc -n argocd argocd-server -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
-argo_server_password=(kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath='{.data.password}' | base64 --decode)
+argo_server_password='(kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath='{.data.password}' | base64 --decode)'
 argocd login $argo_server_ip --insecure --username admin --password $argo_server_password
 fi 
 
