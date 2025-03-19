@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
       - name: {{.Values.appName}}
-        image: public.ecr.aws/w8x4g9h7/roboshop-v3/{{ .Values.appName }}
+        image: {{.Values.appImage}}
+        # public.ecr.aws/w8x4g9h7/roboshop-v3/{{ .Values.appName }}
         ports:
         - containerPort: {{.Values.service.containerPort}}
         envFrom:
