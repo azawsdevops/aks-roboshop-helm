@@ -6,7 +6,7 @@ appImage=$3
 export PATH=/github-runner/.local/bin:/github-runner/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
 
  if [ -z "$app_name" -o -z "$env" ]; then
- echo Input AppName or env is missing
+ echo "Input AppName or env is missing"
  exit 1
  fi
 #if account not logged in then please log in to argo cd
